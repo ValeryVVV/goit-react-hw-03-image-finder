@@ -86,7 +86,6 @@ export default class App extends Component {
             {totalHits > pictures.length &&  <Button onClick={this.loadMore} /> }
             {status === 'pending' && <Loader />}
             <ToastContainer position="top-right" autoClose={3000} />
-
         </div>
 
     )

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { toast } from "react-toastify";
 import PropTypes from 'prop-types'; 
 
 import style  from "./Searchbar.module.css";
