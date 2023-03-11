@@ -85,18 +85,7 @@ export default class App extends Component {
             <ImageGallery images={pictures} />
             {totalHits > pictures.length &&  <Button onClick={this.loadMore} /> }
             {status === 'pending' && <Loader />}
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <ToastContainer position="top-right" autoClose={3000} />
 
         </div>
 
