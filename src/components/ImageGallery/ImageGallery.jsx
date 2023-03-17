@@ -15,20 +15,22 @@ export default class ImageGallery extends Component {
     };
   
     componentDidMount() {
-      document.addEventListener('click', e => {
-        if (e.target.nodeName !== 'IMG') {
-          this.setState({ showModal: false });
-          return;
-        } else {
-          let picture = this.props.images;
-          this.setState({ bigPic: picture[0].largeImageURL });
-        }
-      });
-    }
-  
-    toggleModal = () => {
-      this.setState(({ showModal }) => ({ showModal: !showModal }));
-    };
+        document.addEventListener('click', e => {
+          if (e.target.nodeName !== 'IMG') {
+            this.setState({ showModal: false });
+            return;
+          } else {
+            let picture = this.props.images.filter(obj => {
+              return obj.id === parseInt(e.target.alt);
+            });
+            this.setState({ bigPic: picture[0].largeImageURL });
+          }
+        });
+      }
+    
+      toggleModal = () => {
+        this.setState(({ showModal }) => ({ showModal: !showModal }));
+      };
   
     render() {
       const { showModal, bigPic } = this.state;

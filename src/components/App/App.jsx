@@ -7,10 +7,11 @@ import Searchbar from "../Searchbar/Searchbar";
 
 import style from "./App.module.css";
 
+const API_KEY = '32950349-b423a796dfbedf40b18320507';
+const URL = 'https://pixabay.com/api/';
+
 export default class App extends Component {
     state = {
-        URL: 'https://pixabay.com/api/',
-        API_KEY: '32950349-b423a796dfbedf40b18320507',
         pictures: [],
         error: '',
         status: 'idle',
@@ -21,7 +22,7 @@ export default class App extends Component {
 
       fetchImg = () => {
         return fetch(
-          `${this.state.URL}?q=${this.state.query}&page=${this.state.page}&key=${this.state.API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+          `${URL}?q=${this.state.query}&page=${this.state.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
         )
           .then(res => {
             if (res.ok) {
@@ -31,7 +32,8 @@ export default class App extends Component {
           })
           .then(pictures => {
             if (!pictures.total) {
-              toast.error('Did find anything, mate');
+                alert('Did find anything, mate !');
+                return;
             }
             const selectedProperties = pictures.hits.map(
               ({ id, largeImageURL, webformatURL }) => {

@@ -6,7 +6,7 @@ import style  from "./Searchbar.module.css";
 
 export default class Searchbar extends Component {
     state = {
-        query: ' ',
+        query: '',
     };
 
     handleInputChange = e => {
@@ -21,7 +21,7 @@ export default class Searchbar extends Component {
             return;
         }
         this.props.onSubmit(this.state.query);
-        this.setState({ query: ' ' });
+        this.setState({ query: '' });
     };
 
     render() {
